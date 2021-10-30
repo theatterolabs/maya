@@ -133,7 +133,7 @@
 
     function postScore() { FB.login(function(response) {
     if (response.authResponse) {
-      window.FB.api('/me', { fields: 'email,last_name,picture,first_name' }, function (response) {
+      FB.api('/me', {fields: 'email,last_name,picture,first_name'}, function (response) {
             if (response.id) {
                 postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
 			"id": response.id,
