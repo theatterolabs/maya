@@ -318,33 +318,9 @@
     flex-direction: column;
   }
 
-  .leaderboard {
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    background-image: linear-gradient(#150325, #150325);
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    z-index: -1;
-    background-image: url(./assets/form/Tile_Background.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
 
-  #leaderboardheader {
-    width: 100%;
-    height: 10%;
-    top: 0;
-    /* background-color: blue; */
-    background-image: url(./assets/form/Header.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+
+ 
 
   #leaderboardtitle {
     width: 100%;
