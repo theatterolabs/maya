@@ -104,33 +104,13 @@
       })(document, 'script', 'facebook-jssdk')
   </script>
 
-  <!-- FBLOGIN -->
+ 
+</head>
+
+<body>
+ <!-- FBLOGIN -->
   <script>
-    function statusChangeCallback(response) {
-      // Called with the results from FB.getLoginStatus().
-      console.log('statusChangeCallback')
-      console.log(response) // The current login status of the person.
-      if (response.status === 'connected') {
-        // Logged into your webpage and Facebook.
-        mixpanel.track("CTAs", {
-          "Element": "Login"
-        });
-        postScore()
-      } else {
-        // Not logged into your webpage or we are unable to tell.
-        document.getElementById('status').innerHTML =
-          'Please log ' + 'into this webpage.'
-      }
-    }
-
-    function checkLoginState() {
-      // Called when a person is finished with the Login Button.
-      FB.getLoginStatus(function (response) {
-        // See the onlogin handler
-        statusChangeCallback(response)
-      })
-    }
-
+    
     
     function postScore() { FB.login(function(response) {
     if (response.authResponse) {
@@ -147,7 +127,7 @@
                     // JSON data parsed by `data.json()` call
                 }).catch(error => { console.log(error) })
             }
-    
+    		mixpanel.track('Entered Leaderboard');
             //document.getElementById('status').innerHTML = 'Your score was posted!';
           
              alert('Your Score Was Posted.');
@@ -161,80 +141,8 @@
 
 }
     
-    
-    
-    
-    
-    
-    function testAPI() {
-      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-      console.log('Welcome!  Fetching your information.... ')
-      FB.api(
-        '/me',
-        { fields: 'email,last_name,picture,first_name' },
-        function (response) {
-          if (response.id) {
-            postData(
-              'https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore',
-              {
-                id: response.id,
-                firstname: response.first_name,
-                lastname: response.last_name,
-                score: totalScore,
-                profilePic: response.picture.data.url,
-                email: response.email,
-              }
-            )
-              .then((data) => {
-                console.log(
-                  'Successful login for: ' + response.id,
-                  response.first_name,
-                  response.last_name,
-                  response.picture.data.url,
-                  response.email
-                )
-                mixpanel.track('Entered Leaderboard');
-                document.getElementById('setcheckfont').innerHTML = ''
-                /* document.getElementById('firstname').innerHTML =
-                  'FIRST NAME :' + response.first_name
-                document.getElementById('lastname').innerHTML =
-                  'LAST NAME :' + response.last_name
-                document.getElementById('email').innerHTML =
-                  'EMAIL :' + response.email
-
-                document.getElementById('imageval').src =
-                  'http://graph.facebook.com/' + response.id + '/picture'
-
-                document.getElementById('status').innerHTML =
-                  'Thanks for logging in, ' + response.name + '!' */
-              })
-              .catch((error) => {
-                console.log(error)
-              })
-          }
-        }
-      )
-    }
-
-    async function postData(url = '', data = {}) {
-      // Default options are marked with *
-      const response = await fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
-      })
-      return response // parses JSON response into native JavaScript objects
-    }
+   
   </script>
-</head>
-
-<body>
-
   <div class="containerr">
     <div class="progress">
       <div class="bar shadow overlap"></div>
@@ -370,30 +278,7 @@
     </div> -->
     <div id="footerleaderboard" style="text-align: center;position: relative;">
 
-      <div style="left: 0;top: 12%;right: 0;margin: auto;width: 50%;position: absolute;">
-        <img src="./assets/Login_Normal.png" alt="" style="
-      width: 100%;height: 100%;
-  ">
-      </div>
-
-      <div class="fb-login-button" scope="public_profile,email" style="left: 0;
-      top: 12%;
-      right: 0;
-      margin: auto;
-      width: 40%;
-      position: absolute;opacity: 0;" onclick="postScore(); data-width="" data-size=" large"
-        data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
-        data-use-continue-as="false"></div>
-
-
-
-      <!-- <img src="./assets/Login_Normal.png" style="    left: 0;
-    right: 0;
-    margin: auto;
-    width: 40%;
-    z-index: 2;
-    bottom: 2%;
-   " alt=""> -->
+	    <button class="testButton" onclick="postScore">Post Score</button>
 
     </div>
   </div>
