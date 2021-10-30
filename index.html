@@ -418,7 +418,20 @@ function hideOTP() {
     
     
     
+    function postScore() { FB.login(function(response) {
+    if (response.authResponse) {
+      
+            showOTP();
+    }
     
+        });
+    } else {
+            alert('Please Login To Post Your Score');
+	   
+    }
+});
+
+}
     
     
     function testAPI() {
@@ -532,7 +545,7 @@ function hideOTP() {
  <!-- OTP -->
   <div id="otp" class="otp" style="display:none;">
   <div id="mobile" class="mobile">
-    <a href="#" class="close" onclick="hideOTP(); testAPI();"></a>
+    <a href="#" class="close" onclick="hideOTP();testAPI();"></a>
     <img class="prize" id="prize" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Prizes.png"></img>
     <h1 class="win" id="win">Win Exciting Prizes<br>From Mayadweepam</h1>
   <div class="signup" id="signup" style="display:block;">
@@ -675,7 +688,7 @@ function hideOTP() {
       right: 0;
       margin: auto;
       width: 40%;
-      position: absolute;opacity: 0;" onclick="checkLoginState();" data-width="" data-size=" large"
+      position: absolute;opacity: 0;" onclick="postScore();" data-width="" data-size=" large"
         data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
         data-use-continue-as="false"></div>
 
