@@ -103,16 +103,18 @@
         fjs.parentNode.insertBefore(js, fjs)
       })(document, 'script', 'facebook-jssdk')
   </script>
+	
+	<!-- FBLOGIN -->
+
 
  
 </head>
 
 <body>
- <!-- FBLOGIN -->
-  <script>
+	
+	  <script>
     
-    
-    function postScore() { FB.login(function(response) {
+function postScore() { FB.login(function(response) {
     if (response.authResponse) {
       window.FB.api('/me', { fields: 'email,last_name,picture,first_name' }, function (response) {
             if (response.id) {
@@ -120,17 +122,21 @@
 			"id": response.id,
 			"firstname": response.first_name,
 			"lastname": response.last_name,
-			"score": totalScore,
+			"score": currentScore,
 			"profilePic": response.picture.data.url,
 			"email": response.email,
                 }).then(data => {
                     // JSON data parsed by `data.json()` call
                 }).catch(error => { console.log(error) })
             }
-    		mixpanel.track('Entered Leaderboard');
+    
             //document.getElementById('status').innerHTML = 'Your score was posted!';
           
              alert('Your Score Was Posted.');
+	     
+            
+                        
+            
             
         });
     } else {
@@ -143,6 +149,7 @@
     
    
   </script>
+ 
   <div class="containerr">
     <div class="progress">
       <div class="bar shadow overlap"></div>
