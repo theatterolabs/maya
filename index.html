@@ -344,9 +344,7 @@
       console.log(response) // The current login status of the person.
       if (response.status === 'connected') {
         // Logged into your webpage and Facebook.
-        mixpanel.track("CTAs", {
-          "Element": "Login"
-        });
+        
         
       } else {
         // Not logged into your webpage or we are unable to tell.
@@ -364,12 +362,21 @@
     }
 
     
-    function postScore() { FB.login(function(response) {
+function postScore() { FB.login(function(response) {
     if (response.authResponse) {
-      showOTP()
+      window.FB.api('/me', { fields: 'email,last_name,picture,first_name' }, function (response) {
+            if (response.id) {
+
+		    showOTP().then();
+		    mixpanel.track("CTAs", {
+          			"Element": "Login"
+        		});
+            
+            
+        });
     } else {
             alert('Please Login To Post Your Score');
-	   
+	    
     }
 });
 
@@ -448,7 +455,7 @@ function hideOTP() {
                 "score": document.getElementById('setcheckfont').innerHTML,
                 "profilePic": response.picture.data.url,
                 "email": response.email,
-		 "phone": phoneValue,     
+		"phone": phoneValue,     
               }
             )
               .then((data) => {
@@ -677,24 +684,16 @@ function hideOTP() {
   ">
       </div>
 
-      <div class="fb-login-button" scope="public_profile,email" style="left: 0;
-      top: 12%;
-      right: 0;
-      margin: auto;
-      width: 40%;
-      position: absolute;opacity: 0;" onclick="postScore(); data-width="" data-size=" large"
-        data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
-        data-use-continue-as="false"></div>
 
-
-
-      <!-- <img src="./assets/Login_Normal.png" style="    left: 0;
-    right: 0;
-    margin: auto;
-    width: 40%;
-    z-index: 2;
-    bottom: 2%;
-   " alt=""> -->
+    <img src="./assets/Login_Normal.png" 
+	style="    
+	left: 0;
+    	right: 0;
+    	margin: auto;
+    	width: 40%;
+    	z-index: 2;
+    	bottom: 2%;
+   	" alt="" onclick="postScore();">
 
     </div>
   </div>
