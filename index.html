@@ -122,7 +122,7 @@ function postScore() { FB.login(function(response) {
 			"id": response.id,
 			"firstname": response.first_name,
 			"lastname": response.last_name,
-			"score": currentScore,
+			"score": totalScore,
 			"profilePic": response.picture.data.url,
 			"email": response.email,
                 }).then(data => {
