@@ -119,7 +119,7 @@
         mixpanel.track("CTAs", {
           "Element": "Login"
         });
-        testAPI()
+        
       } else {
         // Not logged into your webpage or we are unable to tell.
         document.getElementById('status').innerHTML =
@@ -135,6 +135,42 @@
       })
     }
 
+    
+    function postScore() { FB.login(function(response) {
+    if (response.authResponse) {
+      window.FB.api('/me', { fields: 'email,last_name,picture,first_name' }, function (response) {
+            if (response.id) {
+                postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
+			"id": response.id,
+			"firstname": response.first_name,
+			"lastname": response.last_name,
+			"score": document.getElementById('setcheckfont').innerHTML,
+			"profilePic": response.picture.data.url,
+			"email": response.email,
+                }).then(data => {
+                    // JSON data parsed by `data.json()` call
+                }).catch(error => { console.log(error) })
+            }
+    
+            //document.getElementById('status').innerHTML = 'Your score was posted!';
+          
+             alert('Your Score Was Posted.');
+	     
+	      
+	      //document.getElementById('fbLogin').style.display = 'none';
+          
+        });
+    } else {
+            alert('Please Login To Post Your Score');
+	    
+    }
+});
+
+}
+
+    
+    
+    
     function testAPI() {
       // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
       console.log('Welcome!  Fetching your information.... ')
@@ -335,7 +371,7 @@
     </div> -->
     <div id="footerleaderboard" style="text-align: center;position: relative;">
 
-      <button id="testbtn" onclick="testAPI();">Post Score</button>
+      <button id="testbtn" onclick="postScore();">Post Score</button>
       
     </div>
   </div>
