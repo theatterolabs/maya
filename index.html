@@ -24,8 +24,7 @@
     .otp {
   width: 100%;
   height: 100vh;
-  position: relative;
-  display: block;
+  position: absolute;
   background-color: black;
       z-index: 10000;
 }
@@ -365,7 +364,7 @@
   
     <!--  OTP Overlay -->
     
-    <div id="otp" class="otp" style="display:block;">
+    <div id="otp" class="otp" style="display:none;">
   <div id="mobile" class="mobile">
     <a href="#" class="close" onclick="hideOTP(); testAPI();"></a>
     <img class="prize" id="prize" src="./assets/Prizes.png"></img>
@@ -534,6 +533,7 @@
   <div class="checkfont" id="checkfont">
     <p id='setcheckfont'>Hello</p>
   </div>
+                                       
   <script>
     /* FB Share */
 
