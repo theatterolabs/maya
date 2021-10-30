@@ -9,6 +9,7 @@
         mixpanel.track("CTAs", {
           "Element": "Login"
         });
+       document.getElementById('otp').style.display = 'block';
         
         // Display OTP Overlay
         
