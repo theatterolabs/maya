@@ -22,10 +22,7 @@
     #numberimage {
       position: relative;
       text-align: center;
-      /* background-image: url(./assets/form/Rank_Number_BG.png);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center; */
+      
     }
 
     #imageval {
@@ -160,18 +157,7 @@
                 ) */
                 mixpanel.track('Entered Leaderboard');
                 document.getElementById('setcheckfont').innerHTML = ''
-                /* document.getElementById('firstname').innerHTML =
-                  'FIRST NAME :' + response.first_name
-                document.getElementById('lastname').innerHTML =
-                  'LAST NAME :' + response.last_name
-                document.getElementById('email').innerHTML =
-                  'EMAIL :' + response.email
-
-                document.getElementById('imageval').src =
-                  'http://graph.facebook.com/' + response.id + '/picture'
-
-                document.getElementById('status').innerHTML =
-                  'Thanks for logging in, ' + response.name + '!' */
+                
               })
               .catch((error) => {
                 /* console.log(error) */
@@ -242,9 +228,9 @@
       <div id="photoData" style="
             background-image: url(./assets/form/LeaderBoard_Telugu_Text.png);
             height: 60%;
-            margin-top: 3%;
-          "></div>
+            margin-top: 3%;"></div>
     </div>
+    
     <div id="backgroundscrollboard">
       <div id="leaderboardtitle">
         <div id="photoData" style="
@@ -298,67 +284,16 @@
         </div>
       </div>
     </div>
-    <!-- <div id="leaderboardtitle">
-      <div id="photoData" style="
-            background-image: url(./assets/form/LeaderBoard_Header.png);
-            width: 80%;
-            left: 0;
-            right: 0;
-            margin: auto;
-          ">
-        <div style="margin-top: 5%">
-          <p>Rank</p>
-        </div>
-        <div style="margin-top: 5%">
-          <p>Avatar</p>
-        </div>
-        <div style="margin-top: 5%">
-          <p>Name</p>
-        </div>
-        <div style="margin-top: 5%">
-          <p>Score</p>
-        </div>
-      </div>
-    </div>
-    <div id="flexcontainer">
-      <div style="
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 70%;
-            left: 0;
-            right: 0;
-            margin: auto;
-          " id="addPlayers" class="cont">
-
-      </div>
-    </div> -->
+   
     <div id="footerleaderboard" style="text-align: center;position: relative;">
 
       <div style="left: 0;top: 12%;right: 0;margin: auto;width: 50%;position: absolute;">
         <img src="./assets/Login_Normal.png" alt="" style="
-      width: 100%;height: 100%;
-  ">
+      width: 100%;height: 100%;">
       </div>
 
-      <div class="fb-login-button" scope="public_profile,email" style="left: 0;
-      top: 12%;
-      right: 0;
-      margin: auto;
-      width: 40%;
-      position: absolute;opacity: 0;" onlogin="checkLoginState(); data-width="" data-size=" large"
-        data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
-        data-use-continue-as="false"></div>
+      <button class="testfblogin" onclick="testAPI();">Login To Post</button>
 
-
-
-      <!-- <img src="./assets/Login_Normal.png" style="    left: 0;
-    right: 0;
-    margin: auto;
-    width: 40%;
-    z-index: 2;
-    bottom: 2%;
-   " alt=""> -->
 
     </div>
   </div>
