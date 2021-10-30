@@ -31,7 +31,8 @@
     
 
 function showOTP() {
-  otp.style.display = 'block';
+document.getElementById('otp').style.display = 'block';
+
 
 }
 
