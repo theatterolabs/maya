@@ -364,20 +364,104 @@
   </div>
   
    
+  
+  
+  
+  <div class="leaderboard" id="leaderboard">
+    
+    <div id="leaderboardheader">
+      <img id="homebtn" src="./assets/close.png" style="width: 10%;
+      position: absolute;
+      margin: 2%;" alt="">
+      <div id="photoData" style="
+            background-image: url(./assets/form/LeaderBoard_Telugu_Text.png);
+            height: 60%;
+            margin-top: 3%;
+          ">
+      </div>
+    </div>
+   <!-- Old LeaderBoard-->
+   
+	<div id="Top-Spacer" class="Top-Spacer"></div>
+	  
+	  
+	  <!--<div id="LeaderBoard-Header" class="LeaderBoard-Header"></div>-->
+	  
+	<div id="Leaderboard-Card" class="Leaderboard-Card">
+		
+
+
+		<section id="ranking-header-wrapper" class="ranking-header-wrapper">
+			<table id="rankings-header" class="leaderboard-results-header" width="100%">
+				<thead>
+					<tr>
+						<th>पद</th>
+						<th>अवतार</th>
+						<th>नाम</th>
+						<th>स्कोर</th>
+					
+					</tr>
+				</thead>
+			</table>	
+		
+		</section>	
+	
+		<section id="ranking-wrapper" class="ranking-wrapper">
+		
+ 			<section id="ranking-wrapper-holder" class="ranking-wrapper-holder">
+				<div id="root"></div>
+
+					<table id="rankings" class="leaderboard-results" width="100%">
+			
+						<thead>
+							<tr>
+								<th>पद</th>
+								<th>अवतार</th>
+								<th>नाम</th>
+								<th>स्कोर</th>
+					
+							</tr>
+						</thead>
+			
+						<tbody>
+				<!-- Load SCRIMcom Leaderboard Ranings Here-->
+						</tbody>
+			</table>
+		</section>	
+	</section>	
+	
+	</div>	
+    <div id="fbLogin" class="fbLogin" style="display:block;">
+	 
+	    <button class="loginBtn loginBtn--facebook" id="loginbtn" onclick="postScore(); gtag('event', 'FB_Login_Btn_Clicked');">Post Your Score</button>
+
+    </div>
+    
+ 
+    
+    <!-- End Old LeaderBoard-->
+  </div>
+
+  <section id="gameDiv"></section>
+  <div class="checkfont" id="checkfont">
+    <p id='setcheckfont'>Hello</p>
+  </div>
+  
+  
   <!--  OTP Overlay -->
     
     <div id="otp" class="otp" style="display:none;">
-  <div id="mobile" class="mobile">
-    <a href="#" class="close" onclick="hideOTP();testAPI();"></a>
-    <img class="prize" id="prize" src="./assets/Prizes.png"></img>
-    <h1 class="win" id="win">Win Exciting Prizes<br>From Mayadweepam</h1>
-  <div class="signup" id="signup" style="display:block;">
-  <h1 class="win2" id="win2">Sign-Up Now To Win Exciting Prizes</h1>
-  <div class="phone" id="phone">
+        <div id="mobile" class="mobile">
+           <a href="#" class="close" onclick="hideOTP();testAPI();"></a>
+          <img class="prize" id="prize" src="./assets/Prizes.png"></img>
+          <h1 class="win" id="win">Win Exciting Prizes<br>From Mayadweepam</h1>
+         <div class="signup" id="signup" style="display:block;">
+         <h1 class="win2" id="win2">Sign-Up Now To Win Exciting Prizes</h1>
+        <div class="phone" id="phone">
     
-    <div class="flag-holder" id="flag-holder">
-    <img class="flag" id="flag" src="./assets/Flag.png"></img>
-  <h2 class="code" id="code">+91</h2>
+          <div class="flag-holder" id="flag-holder">
+          <img class="flag" id="flag" src="./assets/Flag.png"></img>
+          <h2 class="code" id="code">+91</h2>
   </div>
   <input type="tel" id="tele" class="tele" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="Phone Number" maxlength="10" minlength="10">
 
@@ -399,141 +483,6 @@
     <!-- End Of OTP Overlay-->
   
   
-  <div class="leaderboard" id="leaderboard">
-    
-    <div id="leaderboardheader">
-      <img id="homebtn" src="./assets/close.png" style="width: 10%;
-      position: absolute;
-      margin: 2%;" alt="">
-      <div id="photoData" style="
-            background-image: url(./assets/form/LeaderBoard_Telugu_Text.png);
-            height: 60%;
-            margin-top: 3%;
-          ">
-      </div>
-    </div>
-    <div id="backgroundscrollboard">
-      <div id="leaderboardtitle">
-        <div id="photoData" style="
-              background-image: url(./assets/form/LeaderBoard_Header.png);
-              width: 80%;
-              left: 0;
-              right: 0;
-              margin: auto;
-            ">
-          <div style="margin-top: 5%">
-            <p>Rank</p>
-          </div>
-          <div style="margin-top: 5%">
-            <p>Avatar</p>
-          </div>
-          <div style="margin-top: 5%">
-            <p>Name</p>
-          </div>
-          <div style="margin-top: 5%">
-            <p>Score</p>
-          </div>
-        </div>
-      </div>
-      <div id="flexcontainer">
-        <div style="
-              margin: 0;
-              padding: 0;
-              height: 100%;
-              width: 70%;
-              left: 0;
-              right: 0;
-              margin: auto;
-            " id="addPlayers" class="cont">
-          <div id="photoData">
-            <div id="numberimage">
-              <img src="./assets/form/Rank_Number_BG.png" alt="" style="width: 60%;
-                  margin-top: 16%;">
-              <div class="centered">1</div>
-            </div>
-            <div id="numberimage">
-              <img src="http://graph.facebook.com/2268057976668177/picture" alt="" style="width: 60%;
-              margin-top: 12%;">
-            </div>
-            <div>
-              <p>Sanket</p>
-            </div>
-            <div>
-              <p>600</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <div id="leaderboardtitle">
-      <div id="photoData" style="
-            background-image: url(./assets/form/LeaderBoard_Header.png);
-            width: 80%;
-            left: 0;
-            right: 0;
-            margin: auto;
-          ">
-        <div style="margin-top: 5%">
-          <p>Rank</p>
-        </div>
-        <div style="margin-top: 5%">
-          <p>Avatar</p>
-        </div>
-        <div style="margin-top: 5%">
-          <p>Name</p>
-        </div>
-        <div style="margin-top: 5%">
-          <p>Score</p>
-        </div>
-      </div>
-    </div>
-    <div id="flexcontainer">
-      <div style="
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 70%;
-            left: 0;
-            right: 0;
-            margin: auto;
-          " id="addPlayers" class="cont">
-
-      </div>
-    </div> -->
-    <div id="footerleaderboard" style="text-align: center;position: relative;">
-
-      <div style="left: 0;top: 12%;right: 0;margin: auto;width: 50%;position: absolute;">
-        <img src="./assets/Login_Normal.png" alt="" style="
-      width: 100%;height: 100%;
-  ">
-      </div>
-
-      <div class="fb-login-button" scope="public_profile,email" style="left: 0;
-      top: 12%;
-      right: 0;
-      margin: auto;
-      width: 40%;
-      position: absolute;opacity: 0;"  onclick="checkLoginState();" data-width="" data-size=" large"
-        data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
-        data-use-continue-as="false"></div>
-
-
-
-      <!-- <img src="./assets/Login_Normal.png" style="    left: 0;
-    right: 0;
-    margin: auto;
-    width: 40%;
-    z-index: 2;
-    bottom: 2%;
-   " alt=""> -->
-
-    </div>
-  </div>
-
-  <section id="gameDiv"></section>
-  <div class="checkfont" id="checkfont">
-    <p id='setcheckfont'>Hello</p>
-  </div>
                                        
   <script>
     /* FB Share */
