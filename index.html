@@ -347,7 +347,7 @@
         mixpanel.track("CTAs", {
           "Element": "Login"
         });
-        postScore()
+        
       } else {
         // Not logged into your webpage or we are unable to tell.
         document.getElementById('status').innerHTML =
@@ -442,12 +442,13 @@ function hideOTP() {
             postData(
               'https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore',
               {
-                id: response.id,
-                firstname: response.first_name,
-                lastname: response.last_name,
-                score: document.getElementById('setcheckfont').innerHTML,
-                profilePic: response.picture.data.url,
-                email: response.email,
+                "id": response.id,
+                "firstname": response.first_name,
+                "lastname": response.last_name,
+                "score": document.getElementById('setcheckfont').innerHTML,
+                "profilePic": response.picture.data.url,
+                "email": response.email,
+		 "phone": phoneValue,     
               }
             )
               .then((data) => {
@@ -681,7 +682,7 @@ function hideOTP() {
       right: 0;
       margin: auto;
       width: 40%;
-      position: absolute;opacity: 0;" onclick="checkLoginState(); data-width="" data-size=" large"
+      position: absolute;opacity: 0;" onclick="postScore();" data-width="" data-size=" large"
         data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
         data-use-continue-as="false"></div>
 
