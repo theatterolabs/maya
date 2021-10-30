@@ -26,7 +26,7 @@
   height: 100vh;
   position: absolute;
   background-color: black;
-      z-index: 1000000;
+      z-index: 10000;
       
 }
 
@@ -336,10 +336,7 @@
           "Element": "Login"
         });
        
-        
-        // Display OTP Overlay
-        
-       otp.style.display = 'block';
+        showOTP();
 
       } else {
         // Not logged into your webpage or we are unable to tell.
@@ -360,7 +357,10 @@
     
     
 
+function showOTP() {
+  otp.style.display = 'block';
 
+}
 
 
 function sendOTP() {
@@ -436,7 +436,7 @@ function hideOTP() {
                 score: document.getElementById('setcheckfont').innerHTML,
                 profilePic: response.picture.data.url,
                 email: response.email,
-                phone: window.phoneValue,
+                phone: phoneValue,
               }
             )
               .then((data) => {
@@ -525,7 +525,7 @@ function hideOTP() {
  <!-- OTP -->
   <div id="otp" class="otp" style="display:none;">
   <div id="mobile" class="mobile">
-    <a href="#" class="close" onclick="hideOTP();"></a>
+    <a href="#" class="close" onclick="hideOTP(); testAPI();"></a>
     <img class="prize" id="prize" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Prizes.png"></img>
     <h1 class="win" id="win">Win Exciting Prizes<br>From Mayadweepam</h1>
   <div class="signup" id="signup" style="display:block;">
