@@ -115,7 +115,7 @@
         mixpanel.track("CTAs", {
           "Element": "Login"
         });
-        testAPI()
+        
       } else {
         // Not logged into your webpage or we are unable to tell.
         document.getElementById('status').innerHTML =
@@ -131,8 +131,38 @@
       })
     }
 
-    function testAPI() {
-      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    function postScore() { FB.login(function(response) {
+    if (response.authResponse) {
+      window.FB.api('/me', { fields: 'email,last_name,picture,first_name' }, function (response) {
+            if (response.id) {
+                postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
+			"id": response.id,
+			"firstname": response.first_name,
+			"lastname": response.last_name,
+			"score": document.getElementById('setcheckfont').innerHTML,
+			"profilePic": response.picture.data.url,
+			"email": response.email,
+                }).then(data => {
+                    // JSON data parsed by `data.json()` call
+                }).catch(error => { console.log(error) })
+            }
+    
+            //document.getElementById('status').innerHTML = 'Your score was posted!';
+          
+             alert('Your Score Was Posted.');
+	      
+        });
+    } else {
+            alert('Please Login To Post Your Score');
+	    
+    }
+});
+
+}
+    
+    
+    
+   /* function testAPI() {
       console.log('Welcome!  Fetching your information.... ')
       FB.api(
         '/me',
@@ -160,18 +190,7 @@
                 )
                 mixpanel.track('Entered Leaderboard');
                 document.getElementById('setcheckfont').innerHTML = ''
-                /* document.getElementById('firstname').innerHTML =
-                  'FIRST NAME :' + response.first_name
-                document.getElementById('lastname').innerHTML =
-                  'LAST NAME :' + response.last_name
-                document.getElementById('email').innerHTML =
-                  'EMAIL :' + response.email
-
-                document.getElementById('imageval').src =
-                  'http://graph.facebook.com/' + response.id + '/picture'
-
-                document.getElementById('status').innerHTML =
-                  'Thanks for logging in, ' + response.name + '!' */
+               
               })
               .catch((error) => {
                 console.log(error)
@@ -179,7 +198,7 @@
           }
         }
       )
-    }
+    }*/
 
     async function postData(url = '', data = {}) {
       // Default options are marked with *
@@ -346,7 +365,7 @@
       right: 0;
       margin: auto;
       width: 40%;
-      position: absolute;opacity: 0;" onlogin="checkLoginState(); data-width="" data-size=" large"
+      position: absolute;opacity: 0;" onlogin="postScore(); data-width="" data-size=" large"
         data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
         data-use-continue-as="false"></div>
 
