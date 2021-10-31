@@ -480,19 +480,36 @@ $(function () {
 
 $('#closeotpwin').on('click', function(e) {
     e.preventDefault();
-	/* $.post('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore',{
-		 	'id': window.idd,
-			'firstname': window.firstnamed,
-			'lastname': window.lastnamed,
-			'score': window.scored,
-			'profilePic': window.profilePicd,
-			'email': window.emaild,
-		  	'phone': window.phoneValue,
-		  
-           });*/
 	
-document.getElementById('otp').style.display = 'none';
-alert(window.idd + '&' + window.firstnamed + '&' + window.phoneValue);
+	 var accountInfo = {
+        "id": window.idd,
+			"firstname": window.firstnamed,
+			"lastname": window.lastnamed,
+			"score": window.scored,
+			"profilePic": window.profilePicd,
+			"email": window.emaild,
+		  	"phone": window.phoneValue,
+    };
+    var accountInfoJson = JSON.stringify(accountInfo);
+    $j.ajax({
+        type: "POST",
+        url: "https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore",
+        headers: {
+             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        },
+        crossDomain: true,
+        data: JSON.stringify(accountInfo),
+        dataType: 'json',
+        success: function(responseData, status, xhr) {
+            document.getElementById('otp').style.display = 'none';
+		alert('Your Score Was Posted');
+        },
+        error: function(request, status, error) {
+            console.log(request.responseText);
+        }
+    });
+	
     
 });
 });
