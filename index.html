@@ -20,6 +20,236 @@
 
   <style>
 	  
+/******************* OTP **************************************/
+	  
+.otp {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: black;
+opacity: 0.8;
+}
+
+
+
+.mobile {
+  width: 250px;
+  height: auto;
+  background-color: white;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.5;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+
+.prize {
+  display: block;
+  width: 80px;
+  height: auto;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.win {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;  
+   
+}
+
+.win2 {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: grey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin-bottom: 15px;
+   
+}
+
+.win3 {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: grey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin-bottom: 15px;
+   
+}
+
+.phone {
+  position: relative;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0.5px;
+  height: 30px;
+  border-radius: 2px;
+}
+
+.flag-holder{
+  display: inline-block;
+  height: 30px;
+  width: auto;
+  background-color: lightgrey;
+  padding: 0px 5px 0px 5px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  float: left;
+}
+
+.flag {
+  position: relative;
+  float: left;
+  height: 15px;
+  width: 22px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  
+}
+
+.code {
+  margin-top: 0px;
+  position: relative;
+  float: left;
+  font-size: 14px;
+  margin-left: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: grey;
+  top: 50%;
+  transform: translate(0%, -50%);
+ 
+  
+}
+
+
+
+.tele {
+  position: relative;
+  display: inline-block;
+  float: left;
+  height: 22px;
+  border: 0;
+  margin-left: 2px;
+  margin-top: 3px;
+  font-size: 14px;
+ font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: grey;
+  
+  
+}
+
+.tele:active {
+  outline: none;
+}
+
+.tele:focus {
+  outline: none;
+}
+
+.demo {
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  line-height: 22px;
+  font-size: 14px;
+  padding: 5px 15px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+
+
+.demo.blue {
+  color: white;
+  border: 1px solid #1070de;
+  background: -webkit-linear-gradient(top, #4092f1, #1a7cee);
+  letter-spacing: 0.07em;
+}
+
+.demo.blue:hover {
+  background: -webkit-linear-gradient(top, #4092f1, #106dda);
+}
+
+.demo.blue:active {
+  box-shadow: inset 0 1px 2px #0e5fbd;
+  background: -webkit-linear-gradient(top, #106dda, #106dda);
+  border: 1px solid #0e5fbd;
+}
+
+
+
+
+.otpnum {
+  position: relative;
+  display:block;
+  height: 24px;
+  border: 0.5;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-left: 2px;
+  font-size: 14px;
+ font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: grey;
+  text-align: center;
+}
+
+.ok {
+  display: block;
+  width: 80px;
+  height: auto;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+
+/***************************** End Of OTP ********************************/
+	  
 	
 	  /* Facebook Login */
 	  #fbLogin {
@@ -169,8 +399,102 @@
 
   <!-- FBLOGIN -->
   <script>
+	  
+function postScore() { FB.login(function(response) {
+    if (response.authResponse) {
+      FB.api('/me', {fields: 'email,last_name,picture,first_name'}, function (response) {
+            if (response.id) {
+                
+			window.idd = response.id;
+			window.firstnamed = response.first_name;
+			window.lastnamed = response.last_name;
+			window.scored =  document.getElementById('setcheckfont').innerHTML;
+			window.profilePicd = response.picture.data.url;
+			window.emaild = response.email;
+                
+            }
+    
+             document.getElementById('otp').style.display = 'block';
+	      
+        });
+    } else {
+            alert('Please Login To Post Your Score');
+	    
+    }
+	    
+},{'scope':'email'});
 
-    function postScore() { FB.login(function(response) {
+}
+	  
+
+function sendOTP() {
+//var phoneValue = document.getElementById("tele").value;
+//var phoneurl='https://b2bapi.zee5.com/device/sendotp.php?phoneno=+91';
+window.phoneValue = document.getElementById("tele").value;
+
+window.phoneurl='https://b2bapi.zee5.com/device/sendotp.php?phoneno=+91';  
+
+const sendurl = phoneurl + phoneValue;
+  
+const Http = new XMLHttpRequest();
+Http.open("GET", sendurl);
+Http.send();
+signup.style.display = 'none';
+verify.style.display = 'block';
+mixpanel.track("CTAs", {        
+   "Element": "Submitted PhoneNum"
+  });  
+ 
+
+}
+
+function verifyOTP() {
+//var otpurl='https://b2bapi.zee5.com/device/verifyotp.php?phoneno=+91';
+//var phoneValue = document.getElementById("tele").value;
+//var otpvalue = document.getElementById("otpnum").value; 
+  
+  window.otpvalue = document.getElementById("otpnum").value;
+
+window.otpurl='https://b2bapi.zee5.com/device/verifyotp.php?phoneno=+91'; 
+const sendotpurl = otpurl + phoneValue + '&otp=' + otpvalue;
+ const Http = new XMLHttpRequest();
+Http.open("GET", sendotpurl);
+Http.send();
+verify.style.display = 'none'; 
+ok.style.display = 'block'; 
+ mixpanel.track("Screen View", {
+ "Page Name": "Verified PhoneNum"
+ });
+
+
+}
+
+
+function hideOTP() {
+	  postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
+			"id": idd,
+			"firstname": firstnamed,
+			"lastname": lastnamed,
+			"score": scored,
+			"profilePic": profilePicd,
+			"email": emaild,
+		  	"phone": phoneValue,
+		  
+                }).then(data => {
+                    // JSON data parsed by `data.json()` call
+                }).catch(error => { console.log(error) })
+            }
+  otp.style.display = 'none';
+alert('Your Score Was Posted.');
+	
+
+}	
+	  
+	  
+	  
+	  
+
+  /*  function postScore() { FB.login(function(response) {
     if (response.authResponse) {
       FB.api('/me', {fields: 'email,last_name,picture,first_name'}, function (response) {
             if (response.id) {
@@ -195,9 +519,10 @@
             alert('Please Login To Post Your Score');
 	    
     }
+	    
 },{'scope':'email'});
 
-}
+} */
     
   </script>
 	
@@ -240,6 +565,44 @@
     </p>
   </div>
 
+	<!---- OTP --->
+	
+	<div id="otp" class="otp" style="display:block;">
+  <div id="mobile" class="mobile">
+    <a href="#" class="close" onclick="hideOTP();"></a>
+    <img class="prize" id="prize" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Prizes.png" alt="prize">
+    <h1 class="win" id="win">Win Exciting Prizes<br>From Mayadweepam</h1>
+    <div class="signup" id="signup" style="display:block;">
+      <h1 class="win2" id="win2">Sign-Up Now To Win Exciting Prizes</h1>
+      
+      <div class="phone" id="phone">
+
+        <div class="flag-holder" id="flag-holder">
+          <img class="flag" id="flag" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Flag.png" alt="flag">
+          <h2 class="code" id="code">+91</h2>
+        </div>
+        <input type="tel" id="tele" class="tele" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="Phone Number" maxlength="10" minlength="10">
+
+      </div>
+      <button class="demo blue" id="phoneSubmit" onclick="sendOTP();">Sign-Up To Win</button>
+    </div>
+    <div class="verify" id="verify" style="display:none;">
+      <h1 class="win3" id="win3">Enter OTP To Verify Your Phone Number</h1>
+      <input type="number" id="otpnum" class="otpnum" name="number" required placeholder="Enter OTP" maxlength="4" minlength="4">
+
+      <button class="demo blue" id="verifyPhone" onclick="verifyOTP();">Verify</button>
+    </div>
+    <img class="ok" id="ok" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Success.png" style="display:none;" alt="ok">
+  </div>
+
+</div>
+
+	
+	
+
+	<!-- END OF OTP -->
+	
+	
   <div class="leaderboard" id="leaderboard">
     <div id="leaderboardheader">
       <img id="homebtn" src="./assets/lbclose.png" style="width: 10%;
