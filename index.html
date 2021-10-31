@@ -476,10 +476,10 @@ ok.style.display = 'block';
 
 }
 
-$(function () {
+$(function() {
 
-$('#closeotpwin').on('click', function(e) {
-    e.preventDefault();
+$('#closeotpwin').on('click', function() {
+   
 const url = "https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore";
 fetch(url, {
     method : "POST",
@@ -494,10 +494,10 @@ fetch(url, {
     response => response.text() // .json(), etc.
     // same as function(response) {return response.text();}
 ).then(
-    document.getElementById('otp').style.display = 'none';
-alert('Your Score Was Posted');
+    
 );
-	
+document.getElementById('otp').style.display = 'none';
+alert('Your Score Was Posted');	
    
 });
 });
@@ -574,7 +574,7 @@ alert('Your Score Was Posted');
 	
 	<div id="otp" class="otp" style="display:none;">
   <div id="mobile" class="mobile">
-    <a href="" class="closeotpwin" id="closeotpwin"></a>
+    <div class="closeotpwin" id="closeotpwin"></div>
     <img class="prize" id="prize" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Prizes.png" alt="prize">
     <h1 class="win" id="win">Win Exciting Prizes<br>From Mayadweepam</h1>
     <div class="signup" id="signup" style="display:block;">
