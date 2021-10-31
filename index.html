@@ -480,7 +480,8 @@ $(function () {
 
 $('#closeotpwin').on('click', function(e) {
     e.preventDefault();
- /*postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
+ function(){ 
+	 postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
 			"id": window.idd,
 			"firstname": window.firstnamed,
 			"lastname": window.lastnamed,
@@ -489,7 +490,7 @@ $('#closeotpwin').on('click', function(e) {
 			"email": window.emaild,
 		  	"phone": window.phoneValue,
 		  
-                });*/
+                });}
 document.getElementById('otp').style.display = 'none';
 alert('Your Score Was Posted.');
     
