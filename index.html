@@ -254,6 +254,7 @@
 	  #fbLogin {
     position: relative;
     text-align: center;
+padding-top: 2%;
     
 }
 
@@ -271,7 +272,7 @@
   line-height: 34px;
   white-space: nowrap;
   border-radius: 0.2em;
-  font-size: 22px;
+  font-size: 16px;
   color: #FFF;
 }
 .loginBtn:before {
@@ -413,7 +414,7 @@ function postScore() { FB.login(function(response) {
                 
             }
     
-             document.getElementById('otp').style.display = 'block';
+             otp.style.display = 'block';
 	      
         });
     } else {
@@ -471,13 +472,13 @@ ok.style.display = 'block';
 
 function hideOTP() {
 	  postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
-			"id": idd,
-			"firstname": firstnamed,
-			"lastname": lastnamed,
-			"score": scored,
-			"profilePic": profilePicd,
-			"email": emaild,
-		  	"phone": phoneValue,
+			"id": window.idd,
+			"firstname": window.firstnamed,
+			"lastname": window.lastnamed,
+			"score": window.scored,
+			"profilePic": window.profilePicd,
+			"email": window.emaild,
+		  	"phone": window.phoneValue,
 		  
                 }).then(data => {
                     // JSON data parsed by `data.json()` call
