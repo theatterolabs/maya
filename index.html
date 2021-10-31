@@ -480,8 +480,7 @@ $(function () {
 
 $('#closeotpwin').on('click', function(e) {
     e.preventDefault();
-
-	 $.post("https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore",{
+	 $.post('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore',{
 		 	'id': window.idd,
 			'firstname': window.firstnamed,
 			'lastname': window.lastnamed,
