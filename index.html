@@ -476,9 +476,11 @@ ok.style.display = 'block';
 
 }
 
+$(function () {
 
-function hideOTP() {
-	  postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
+$('#fcloseotpwin').on('click', function(e) {
+    e.preventDefault();
+ postData('https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore', {
 			"id": window.idd,
 			"firstname": window.firstnamed,
 			"lastname": window.lastnamed,
@@ -490,9 +492,11 @@ function hideOTP() {
                 });
 document.getElementById('otp').style.display = 'none';
 alert('Your Score Was Posted.');
-	
-  
-}
+    
+});
+});
+
+
 
   /*  function postScore() { FB.login(function(response) {
     if (response.authResponse) {
@@ -564,7 +568,7 @@ alert('Your Score Was Posted.');
 	
 	<div id="otp" class="otp" style="display:none;">
   <div id="mobile" class="mobile">
-    <a href="#" class="close" onclick="hideOTP();"></a>
+    <a href="" class="closeotpwin" id="closeotpwin" onclick=""></a>
     <img class="prize" id="prize" src="https://cdn.jsdelivr.net/gh/theatterolabs/v58/Prizes.png" alt="prize">
     <h1 class="win" id="win">Win Exciting Prizes<br>From Mayadweepam</h1>
     <div class="signup" id="signup" style="display:block;">
