@@ -484,6 +484,7 @@ const url = "https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore";
 fetch(url, {
     method : "POST",
     body : JSON.stringify({
+	    id : window.idd,
 	    firstname : window.firstnamed,
 	    lastname : window.lastnamed,
 	    score : window.scored,
