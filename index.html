@@ -480,17 +480,24 @@ $(function () {
 
 $('#closeotpwin').on('click', function(e) {
     e.preventDefault();
-	$.post("https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore", {firstname: window.firstnamed,
-					lastname: window.lastnamed,
-					score: window.scored,
-					profilePic: window.profilePicd,
-					email: window.emaild,
-		  			phone: window.phoneValue,}, function(result){
-    
-  });
-	
-document.getElementById('otp').style.display = 'none';
+const url = "https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore";
+fetch(url, {
+    method : "POST",
+    body : JSON.stringify({
+	    lastname : window.lastnamed,
+	    score : window.scored,
+	    profilePic : window.profilePicd,
+	    email : window.emaild,
+	    phone : window.phoneValue      
+       })
+}).then(
+    response => response.text() // .json(), etc.
+    // same as function(response) {return response.text();}
+).then(
+    document.getElementById('otp').style.display = 'none';
 alert('Your Score Was Posted');
+);
+	
    
 });
 });
