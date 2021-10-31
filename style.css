@@ -338,7 +338,7 @@
   #leaderboardheader {
     width: 100%;
     height: 10%;
-    top: 0;
+    top: 0px;
     /* background-color: blue; */
     background-image: url(./assets/form/Header.png);
     background-position: center;
@@ -358,7 +358,7 @@ background-repeat: no-repeat; */
 
   #flexcontainer {
     width: 100%;
-    height: 70%;
+    height: 80%;
     top: 20%;
     background-color: transparent;
     display: flex;
@@ -371,7 +371,7 @@ background-repeat: no-repeat; */
   #footerleaderboard {
     width: 100%;
     height: 10%;
-    bottom: 0;
+    bottom: 0px;
 
     background-image: url(./assets/form/Header.png);
     background-position: center;
