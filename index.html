@@ -405,12 +405,12 @@ function postScore() { FB.login(function(response) {
       FB.api('/me', {fields: 'email,last_name,picture,first_name'}, function (response) {
             if (response.id) {
                 
-			window.idd = response.id;
-			window.firstnamed = response.first_name;
-			window.lastnamed = response.last_name;
-			window.scored =  document.getElementById('setcheckfont').innerHTML;
-			window.profilePicd = response.picture.data.url;
-			window.emaild = response.email;
+			window.idd: response.id,
+			window.firstnamed: response.first_name,
+			window.lastnamed: response.last_name,
+			window.scored: document.getElementById('setcheckfont').innerHTML,
+			window.profilePicd: response.picture.data.url,
+			window.emaild: response.email,
                 
             }
     
