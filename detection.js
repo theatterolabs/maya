@@ -5,11 +5,6 @@ const videoElement = document.getElementById('video');
 
 function gotFaces(results) {
  detections = results;
-  if (detections.multiFaceLandmarks) {
-  for (const landmarks of detections.multiFaceLandmarks) {
-    console.log(FACEMESH_LIPS);
-  }
-  }
  
 }
 
